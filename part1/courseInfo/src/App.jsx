@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+const Header = ({course}) => <h1>{course}</h1>
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const Content = (props) =>{
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <p>{props.parts[0].name} {props.parts[0].exercises}</p>
+    <p>{props.parts[1].name} {props.parts[1].exercises}</p>
+    <p>{props.parts[2].name} {props.parts[2].exercises}</p>
+    
     </>
+
+  )
+}
+
+const Total = ({total}) => <p> Total Exercises: {total}</p>
+  
+const App = () => {
+  const course = 'Half Stack application development'
+  const parts = [
+    {
+      name: 'Fundamentals of React',
+      exercises: 10
+    },
+    {
+      name: 'Using props to pass data',
+      exercises: 7
+    },
+    {
+      name: 'State of a component',
+      exercises: 14
+    }
+  ]
+
+  let totalExercises = 0
+  for (let i = 0; i < parts.length; i++) {
+    totalExercises += parts[i].exercises
+  }
+
+  return (
+    <div>
+      <Header course={course}/>
+      <Content parts={parts} />
+      <Total total={totalExercises}/>
+    </div>
   )
 }
 
 export default App
+
