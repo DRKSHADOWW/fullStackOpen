@@ -40,7 +40,11 @@ const App = () => {
     <div>
       <Header course={course}/>
       <Content parts={parts} />
+<<<<<<< HEAD:part1/courseInfo/src/App.jsx
       <Total total={totalExercises}/>
+=======
+      <Total total={totalExercises}/> 
+>>>>>>> 7dc2d516bd95bc138ccf02ce1939546a574d23a7:part1/src/App.jsx
     </div>
   )
 }
