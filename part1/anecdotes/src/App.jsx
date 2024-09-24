@@ -74,12 +74,12 @@ const App = () => {
   const votesAnecdote = votes[anecdotes[selected]] ? votes[anecdotes[selected]] : 0
 
   return (
-    <div>
+    <>
     <Anecdote anecdotes={anecdotes[selected]} anecdoteVotes={votesAnecdote} />
     <Button onClick={handleVote} text="Vote" />
     <Button onClick={handleClickNextAnecdote} text="next anecdote" />
     <MostVoted mostVotedAnec={mostVoted.anecdote} mostVotedVotes={mostVoted.votes}/>
-  </div>
+  </>
   )
 }
 
